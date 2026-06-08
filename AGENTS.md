@@ -4,7 +4,7 @@
 
 Always prefer modern Next.js App Router patterns over legacy Pages Router patterns.
 
-# Next.js: ALWAYS read docs before coding
+## Next.js: ALWAYS read docs before coding
 
 Before any Next.js work, read the relevant documentation from:
 
@@ -15,7 +15,7 @@ Do NOT rely on training data.
 
 <!-- END:nextjs-agent-rules -->
 
-# 🧠 Agent Role
+## 🧠 Agent Role
 
 You are a senior frontend engineer specialized in:
 
@@ -46,7 +46,7 @@ You prioritize:
 
 ---
 
-# 🏗️ Architecture Rules
+## 🏗️ Architecture Rules
 
 ## Core Architecture
 
@@ -62,10 +62,10 @@ You prioritize:
 src/
 ├── app/
 ├── components/
-│   ├── ui/
-│   ├── shared/
-│   ├── layouts/
-│   └── animations/
+│ ├── ui/
+│ ├── shared/
+│ ├── layouts/
+│ └── animations/
 ├── features/
 ├── hooks/
 ├── providers/
@@ -73,10 +73,10 @@ src/
 ├── store/
 ├── services/
 ├── lib/
-│   ├── auth/
-│   ├── session/
-│   ├── dal/
-│   └── permissions/
+│ ├── auth/
+│ ├── session/
+│ ├── dal/
+│ └── permissions/
 ├── utils/
 ├── constants/
 ├── styles/
@@ -97,7 +97,7 @@ Rules:
 
 ---
 
-# ⚡ Rendering Strategy
+## ⚡ Rendering Strategy
 
 ## Default Strategy
 
@@ -107,7 +107,7 @@ Rules:
 - Use error.tsx properly
 - Avoid blocking rendering
 
-## Client Rendering ONLY when:
+## Client Rendering ONLY when':'
 
 - browser APIs are needed
 - interactivity is required
@@ -124,7 +124,7 @@ Rules:
 
 ---
 
-# ⚡ Data Fetching Rules
+## ⚡ Data Fetching Rules
 
 ## Preferred Approach
 
@@ -152,7 +152,7 @@ Avoid:
 
 ---
 
-# 🧠 State Management Rules
+## 🧠 State Management Rules
 
 ## Priority Order (IMPORTANT)
 
@@ -167,7 +167,7 @@ Always choose state strategy in this order:
 
 ---
 
-# 🥇 Server State (Preferred)
+## 🥇 Server State (Preferred)
 
 Use for:
 
@@ -184,7 +184,7 @@ Rules:
 
 ---
 
-# 🥈 URL State
+## 🥈 URL State
 
 Use URL state for:
 
@@ -203,7 +203,7 @@ Benefits:
 
 ---
 
-# 🥉 Local Component State
+## 🥉 Local Component State
 
 Use:
 
@@ -220,9 +220,9 @@ For:
 
 ---
 
-# 🧩 Context API Rules
+## 🧩 Context API Rules
 
-## Use Context ONLY for:
+## Use Context ONLY for':'
 
 - theme
 - locale
@@ -230,7 +230,7 @@ For:
 - global UI preferences
 - lightweight app-wide state
 
-## Avoid Context for:
+## Avoid Context for':'
 
 - frequently changing large state
 - server data
@@ -252,7 +252,7 @@ LocaleContext
 
 ---
 
-# ⚡ Zustand Rules
+## ⚡ Zustand Rules
 
 ## Zustand is preferred global state solution
 
@@ -272,7 +272,7 @@ Avoid:
 
 ---
 
-# 🧠 Redux Rules (Rare)
+## 🧠 Redux Rules (Rare)
 
 Use Redux ONLY if project contains:
 
@@ -287,7 +287,7 @@ Otherwise:
 
 ---
 
-# ❌ State Anti-Patterns
+## ❌ State Anti-Patterns
 
 DO NOT:
 
@@ -299,7 +299,7 @@ DO NOT:
 
 ---
 
-# 🎨 UI / UX Rules
+## 🎨 UI / UX Rules
 
 ## Design Philosophy
 
@@ -321,7 +321,7 @@ Avoid:
 
 ---
 
-# 🎭 Animation Rules
+## 🎭 Animation Rules
 
 ## Preferred Libraries
 
@@ -338,7 +338,7 @@ Optional:
 
 ---
 
-# ✨ 2D Animation Rules
+## ✨ 2D Animation Rules
 
 Use animations for:
 
@@ -370,7 +370,7 @@ Preferred duration:
 
 ---
 
-# 🌌 3D Animation Rules
+## 🌌 3D Animation Rules
 
 Use 3D ONLY when it improves UX or branding.
 
@@ -403,7 +403,7 @@ Performance rules:
 
 ---
 
-# 📜 Scroll Animation Rules
+## 📜 Scroll Animation Rules
 
 Use scroll animations carefully.
 
@@ -435,7 +435,7 @@ Rules:
 
 ---
 
-# 🎬 Animation System Rules
+## 🎬 Animation System Rules
 
 Animations should follow a unified system.
 
@@ -453,7 +453,7 @@ Preferred easing:
 
 ---
 
-# 🧠 Motion Hierarchy
+## 🧠 Motion Hierarchy
 
 Priority order:
 
@@ -462,6 +462,7 @@ Priority order:
 3. delight
 
 Animations should:
+
 - support UX
 - guide attention
 - improve transitions
@@ -470,7 +471,7 @@ Never animate for decoration only.
 
 ---
 
-# 📦 Animation Architecture
+## 📦 Animation Architecture
 
 Preferred structure:
 
@@ -485,7 +486,7 @@ hooks/
 
 ---
 
-# ⚡ Animation Performance Rules
+## ⚡ Animation Performance Rules
 
 Always:
 
@@ -502,7 +503,7 @@ Avoid:
 
 ---
 
-# 🌌 3D Scene Rules
+## 🌌 3D Scene Rules
 
 3D scenes must:
 
@@ -512,12 +513,13 @@ Avoid:
 - support reduced motion
 
 Avoid:
+
 - blocking interaction
 - unnecessary WebGL rendering
 
 ---
 
-# 🧩 Component Rules
+## 🧩 Component Rules
 
 ## Component Design
 
@@ -535,7 +537,7 @@ Separate:
 
 ---
 
-# 🧠 Custom Hooks Rules
+## 🧠 Custom Hooks Rules
 
 Extract reusable logic into hooks.
 
@@ -554,7 +556,7 @@ Avoid:
 
 ---
 
-# 🎨 Styling Rules
+## 🎨 Styling Rules
 
 Preferred stack:
 
@@ -572,7 +574,7 @@ Rules:
 
 ---
 
-# 📱 Responsive Design Rules
+## 📱 Responsive Design Rules
 
 Every feature must support:
 
@@ -590,7 +592,7 @@ Rules:
 
 ---
 
-# 🔍 SEO Rules
+## 🔍 SEO Rules
 
 Always optimize for SEO.
 
@@ -607,6 +609,7 @@ Use:
 Prefer server-rendered SEO content.
 
 Avoid:
+
 - SEO-critical client-only rendering
 
 Ensure:
@@ -623,7 +626,7 @@ Use:
 
 ---
 
-# 🚀 Performance Rules
+## 🚀 Performance Rules
 
 Always optimize for:
 
@@ -642,7 +645,7 @@ Rules:
 
 ---
 
-# ♿ Accessibility Rules
+## ♿ Accessibility Rules
 
 Every feature should support:
 
@@ -658,7 +661,7 @@ prefers-reduced-motion
 
 ---
 
-# 🔐 Security Rules
+## 🔐 Security Rules
 
 - Never expose secrets
 - Validate all inputs
@@ -672,7 +675,7 @@ Preferred validation:
 
 ---
 
-# 🔐 Authentication Rules
+## 🔐 Authentication Rules
 
 ## Preferred Authentication Stack
 
@@ -684,6 +687,7 @@ Preferred libraries:
 4. Supabase Auth
 
 Choose based on:
+
 - scalability
 - security requirements
 - OAuth providers
@@ -691,7 +695,7 @@ Choose based on:
 
 ---
 
-# 🧠 Authentication Architecture
+## 🧠 Authentication Architecture
 
 Authentication responsibilities:
 
@@ -703,7 +707,7 @@ Always separate these concerns properly.
 
 ---
 
-# ⚡ Preferred Auth Strategy
+## ⚡ Preferred Auth Strategy
 
 Preferred approach:
 
@@ -720,7 +724,7 @@ Avoid:
 
 ---
 
-# 🧩 Session Management Rules
+## 🧩 Session Management Rules
 
 Preferred session strategies:
 
@@ -742,16 +746,16 @@ Cookies must always use:
 
 ---
 
-# 🏗️ Auth Architecture Rules
+## 🏗️ Auth Architecture Rules
 
 Preferred folders:
 
 src/
 ├── lib/
-│   ├── auth/
-│   ├── session/
-│   ├── dal/
-│   └── permissions/
+│ ├── auth/
+│ ├── session/
+│ ├── dal/
+│ └── permissions/
 
 Authorization logic must be centralized.
 
@@ -759,7 +763,7 @@ Avoid scattered auth logic.
 
 ---
 
-# 🔒 Authorization Rules
+## 🔒 Authorization Rules
 
 Authorization checks MUST happen in:
 
@@ -772,20 +776,22 @@ NEVER rely only on client-side protection.
 
 ---
 
-# 🚫 Layout Authentication Rules
+## 🚫 Layout Authentication Rules
 
 Do NOT perform critical auth checks in layouts.
 
 Reason:
+
 - Partial Rendering
 - layouts do not re-render on every navigation
 
 Instead:
+
 - verify auth near the data source
 
 ---
 
-# 👤 RBAC Rules
+## 👤 RBAC Rules
 
 Preferred roles:
 
@@ -803,7 +809,7 @@ Rules:
 
 ---
 
-# 🧠 Session Verification Rules
+## 🧠 Session Verification Rules
 
 Always create:
 
@@ -816,7 +822,7 @@ Use React cache() when beneficial.
 
 ---
 
-# 🧩 Auth UI Rules
+## 🧩 Auth UI Rules
 
 Authentication UI should include:
 
@@ -834,7 +840,7 @@ Preferred stack:
 
 ---
 
-# 🔑 Password Rules
+## 🔑 Password Rules
 
 Always:
 
@@ -849,9 +855,10 @@ Never:
 
 ---
 
-# 🌐 Protected Routes Rules
+## 🌐 Protected Routes Rules
 
 Use:
+
 - Proxy / Middleware for optimistic checks
 - DAL for secure checks
 
@@ -859,19 +866,21 @@ Never depend on Middleware alone for security.
 
 ---
 
-# 🔄 Redirect Rules
+## 🔄 Redirect Rules
 
 Authenticated users:
+
 - redirect away from auth pages
 
 Unauthenticated users:
+
 - redirect from protected routes
 
 Prefer server-side redirects.
 
 ---
 
-# 🚫 Authentication Anti-Patterns
+## 🚫 Authentication Anti-Patterns
 
 DO NOT:
 
@@ -883,7 +892,7 @@ DO NOT:
 
 ---
 
-# ✅ Authentication Checklist
+## ✅ Authentication Checklist
 
 Before shipping authentication:
 
@@ -900,7 +909,7 @@ Before shipping authentication:
 
 ---
 
-# 🧪 Code Quality Rules
+## 🧪 Code Quality Rules
 
 - Strict TypeScript
 - No any unless absolutely necessary
@@ -918,7 +927,7 @@ Before finishing:
 
 ---
 
-# 🧪 Testing Rules
+## 🧪 Testing Rules
 
 Preferred stack:
 
@@ -936,6 +945,7 @@ Test types:
 Critical features must include tests.
 
 Prefer testing:
+
 - behavior
 - accessibility
 - user interactions
@@ -944,7 +954,7 @@ Avoid testing implementation details.
 
 ---
 
-# ♿ Accessibility Testing
+## ♿ Accessibility Testing
 
 Always verify:
 
@@ -956,25 +966,25 @@ Always verify:
 
 ---
 
-# ⚙️ Commands (Optimized for AI Agents)
+## ⚙️ Commands (Optimized for AI Agents)
 
 ## Type Check
 
-npm run tsc --noEmit <file>
+`npm run tsc --noEmit <file>`
 
 ## Lint
 
-npm run eslint --fix <file>
+`npm run eslint --fix <file>`
 
 ## Format
 
-npm run prettier --write <file>
+`npm run prettier --write <file>`
 
 Avoid full production builds unless necessary.
 
 ---
 
-# 🤖 AI Workflow Rules
+## 🤖 AI Workflow Rules
 
 Before generating code:
 
@@ -986,21 +996,23 @@ Before generating code:
 
 ---
 
-# 🧠 File Editing Rules
+## 🧠 File Editing Rules
 
 Prefer:
+
 - editing existing files
 - preserving project structure
 - reusing utilities/components
 
 Avoid:
+
 - unnecessary file creation
 - duplicated abstractions
 - introducing new architecture without reason
 
 ---
 
-# 🧩 Component Generation Rules
+## 🧩 Component Generation Rules
 
 Generated components must:
 
@@ -1012,7 +1024,7 @@ Generated components must:
 
 ---
 
-# ⚡ AI Performance Rules
+## ⚡ AI Performance Rules
 
 AI-generated code should optimize:
 
@@ -1024,7 +1036,7 @@ AI-generated code should optimize:
 
 ---
 
-# 🧹 Refactoring Rules
+## 🧹 Refactoring Rules
 
 Refactoring must:
 
@@ -1035,7 +1047,7 @@ Refactoring must:
 
 ---
 
-# 🧠 Agent Behavior Rules
+## 🧠 Agent Behavior Rules
 
 The agent should:
 
@@ -1054,7 +1066,7 @@ When unsure:
 
 ---
 
-# ✅ Final Checklist
+## ✅ Final Checklist
 
 Before completing any implementation:
 
