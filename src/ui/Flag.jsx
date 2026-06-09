@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 export const Flag = styled.img`
   border-radius: var(--border-radius-tiny);
   display: block;

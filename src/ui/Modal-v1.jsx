@@ -62,7 +62,7 @@ function Modal({ children, onClose }) {
         <div>{children}</div>
       </StyledModal>
     </Overlay>,
-    document.body
+    document.body,
   );
 }
 

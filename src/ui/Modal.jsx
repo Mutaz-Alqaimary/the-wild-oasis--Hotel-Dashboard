@@ -90,7 +90,7 @@ function Window({ children, name }) {
         <div>{cloneElement(children, { onCloseModal: close })}</div>
       </StyledModal>
     </Overlay>,
-    document.body
+    document.body,
   );
 }
 
