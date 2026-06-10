@@ -8,6 +8,10 @@ const Menu = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
+  @media (max-width: 62em) {
+    justify-content: flex-start;
+  }
 `;
 
 const StyledToggle = styled.button`
@@ -35,9 +39,15 @@ const StyledList = styled.ul`
   background-color: var(--color-grey-0);
   box-shadow: var(--shadow-md);
   border-radius: var(--border-radius-md);
+  z-index: 100;
+  overflow: hidden;
 
   right: ${(props) => props.$position.x}px;
   top: ${(props) => props.$position.y}px;
+
+  @media (max-width: 37.5em) {
+    max-width: calc(100vw - 3.2rem);
+  }
 `;
 
 const StyledButton = styled.button`
@@ -52,9 +62,16 @@ const StyledButton = styled.button`
   display: flex;
   align-items: center;
   gap: 1.6rem;
+  white-space: nowrap;
 
   &:hover {
     background-color: var(--color-grey-50);
+  }
+
+  @media (max-width: 37.5em) {
+    gap: 1rem;
+    padding: 1rem 1.6rem;
+    font-size: 1.3rem;
   }
 
   & svg {

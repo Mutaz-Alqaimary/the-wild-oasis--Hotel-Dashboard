@@ -8,6 +8,14 @@ const Row = styled.div`
     css`
       justify-content: space-between;
       align-items: center;
+      gap: 1.6rem;
+      flex-wrap: wrap;
+
+      @media (max-width: 37.5em) {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 1.2rem;
+      }
     `}
 
   ${(props) =>
@@ -15,6 +23,10 @@ const Row = styled.div`
     css`
       flex-direction: column;
       gap: 1.6rem;
+
+      @media (max-width: 37.5em) {
+        gap: 1.2rem;
+      }
     `}
 `;
 

@@ -14,6 +14,14 @@ const StyledModal = styled.div`
   box-shadow: var(--shadow-lg);
   padding: 3.2rem 4rem;
   transition: all 0.5s;
+  max-width: calc(100vw - 4rem);
+  max-height: calc(100vh - 4rem);
+  overflow: auto;
+
+  @media (max-width: 37.5em) {
+    width: calc(100vw - 2.8rem);
+    padding: 2.4rem 1.6rem;
+  }
 `;
 
 const Overlay = styled.div`
@@ -50,6 +58,11 @@ const Button = styled.button`
     /* fill: var(--color-grey-500);
     stroke: var(--color-grey-500); */
     color: var(--color-grey-500);
+  }
+
+  @media (max-width: 37.5em) {
+    top: 0.8rem;
+    right: 1.2rem;
   }
 `;
 

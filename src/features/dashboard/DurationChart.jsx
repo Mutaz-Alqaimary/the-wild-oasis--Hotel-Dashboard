@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useEffect, useState } from "react";
 import Heading from "../../ui/Heading";
 import {
   Cell,
@@ -18,6 +19,7 @@ const ChartBox = styled.div`
 
   padding: 2.4rem 3.2rem;
   grid-column: 3 / span 2;
+  min-width: 0;
 
   & > *:first-child {
     margin-bottom: 1.6rem;
@@ -25,6 +27,22 @@ const ChartBox = styled.div`
 
   & .recharts-pie-label-text {
     font-weight: 600;
+  }
+
+  @media (max-width: 75em) {
+    grid-column: 1 / -1;
+  }
+
+  @media (max-width: 37.5em) {
+    padding: 1.8rem;
+
+    & > *:first-child {
+      text-align: center;
+    }
+
+    & .recharts-legend-item-text {
+      font-size: 1.2rem;
+    }
   }
 `;
 
@@ -141,24 +159,45 @@ function prepareData(startData, stays) {
   return data;
 }
 
+function useIsNarrowScreen() {
+  const [isNarrow, setIsNarrow] = useState(() =>
+    typeof window === "undefined"
+      ? false
+      : window.matchMedia("(max-width: 37.5em)").matches,
+  );
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 37.5em)");
+    const handleChange = (event) => setIsNarrow(event.matches);
+
+    setIsNarrow(mediaQuery.matches);
+    mediaQuery.addEventListener("change", handleChange);
+
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
+
+  return isNarrow;
+}
+
 function DurationChart({ confirmedStays }) {
   const { isDarkMode } = useDarkMode();
+  const isNarrow = useIsNarrowScreen();
   const startData = isDarkMode ? startDataDark : startDataLight;
   const data = prepareData(startData, confirmedStays);
 
   return (
     <ChartBox>
       <Heading as="h2">Stay duration summary</Heading>
-      <ResponsiveContainer width="100%" height={240}>
+      <ResponsiveContainer width="100%" height={isNarrow ? 320 : 240}>
         <PieChart>
           <Pie
             data={data}
             nameKey="duration"
             dataKey="value"
-            innerRadius={85}
-            outerRadius={110}
-            cx="40%"
-            cy="50%"
+            innerRadius={isNarrow ? 58 : 85}
+            outerRadius={isNarrow ? 82 : 110}
+            cx={isNarrow ? "50%" : "40%"}
+            cy={isNarrow ? "36%" : "50%"}
             paddingAngle={3}
           >
             {data.map((entry) => (
@@ -171,11 +210,11 @@ function DurationChart({ confirmedStays }) {
           </Pie>
           <Tooltip />
           <Legend
-            verticalAlign="middle"
-            align="right"
-            width="30%"
-            layout="vertical"
-            iconSize={15}
+            verticalAlign={isNarrow ? "bottom" : "middle"}
+            align={isNarrow ? "center" : "right"}
+            width={isNarrow ? undefined : "30%"}
+            layout={isNarrow ? "horizontal" : "vertical"}
+            iconSize={isNarrow ? 10 : 15}
             iconType="circle"
           />
         </PieChart>

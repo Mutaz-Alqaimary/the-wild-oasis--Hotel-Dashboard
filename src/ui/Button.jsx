@@ -61,9 +61,14 @@ const StyledButton = styled.button`
   border: none;
   border-radius: var(--border-radius-sm);
   box-shadow: var(--shadow-sm);
+  line-height: 1.3;
 
   ${(props) => sizes[props.size]}
   ${(props) => variations[props.$variation]}
+
+  @media (max-width: 37.5em) {
+    width: 100%;
+  }
 `;
 
 StyledButton.defaultProps = {

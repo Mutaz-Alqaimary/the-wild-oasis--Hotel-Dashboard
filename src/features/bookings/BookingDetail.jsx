@@ -23,6 +23,18 @@ const HeadingGroup = styled.div`
   display: flex;
   gap: 2.4rem;
   align-items: center;
+  min-width: 0;
+
+  @media (max-width: 62em) {
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 37.5em) {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
 `;
 
 function BookingDetail() {

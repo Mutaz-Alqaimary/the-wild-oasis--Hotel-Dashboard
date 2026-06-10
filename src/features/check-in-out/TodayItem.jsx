@@ -19,10 +19,43 @@ const StyledTodayItem = styled.li`
   &:first-child {
     border-top: 1px solid var(--color-grey-100);
   }
+
+  @media (max-width: 37.5em) {
+    grid-template-columns: auto 2rem minmax(0, 1fr);
+    gap: 0.8rem 1.2rem;
+    font-size: 1.3rem;
+    padding: 1rem 0;
+  }
+
+  & > div:nth-child(4) {
+    white-space: nowrap;
+  }
+
+  & > a,
+  & > button {
+    justify-self: end;
+  }
+
+  @media (max-width: 37.5em) {
+    & > div:nth-child(4) {
+      grid-column: 2 / 4;
+    }
+
+    & > a,
+    & > button {
+      grid-column: 1 / -1;
+      justify-self: stretch;
+    }
+  }
 `;
 
 const Guest = styled.div`
   font-weight: 500;
+  line-height: 1.3;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 function TodayItem({ activity }) {

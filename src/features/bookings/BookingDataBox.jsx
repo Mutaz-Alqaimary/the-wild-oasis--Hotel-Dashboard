@@ -19,6 +19,7 @@ const StyledBookingDataBox = styled.section`
   border-radius: var(--border-radius-md);
 
   overflow: hidden;
+  min-width: 0;
 `;
 
 const Header = styled.header`
@@ -30,10 +31,13 @@ const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 2.4rem;
+  line-height: 1.4;
 
   svg {
     height: 3.2rem;
     width: 3.2rem;
+    flex-shrink: 0;
   }
 
   & div:first-child {
@@ -42,6 +46,12 @@ const Header = styled.header`
     gap: 1.6rem;
     font-weight: 600;
     font-size: 1.8rem;
+    min-width: 0;
+  }
+
+  & div:first-child p {
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
 
   & span {
@@ -49,10 +59,58 @@ const Header = styled.header`
     font-size: 2rem;
     margin-left: 4px;
   }
+
+  & > p {
+    text-align: right;
+  }
+
+  @media (max-width: 62em) {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 2rem 2.4rem;
+    gap: 1.2rem;
+    font-size: 1.5rem;
+
+    & div:first-child {
+      gap: 1.2rem;
+      font-size: 1.6rem;
+    }
+
+    & span {
+      font-size: 1.7rem;
+    }
+
+    & > p {
+      text-align: left;
+    }
+  }
+
+  @media (max-width: 37.5em) {
+    padding: 1.6rem;
+    font-size: 1.3rem;
+
+    svg {
+      height: 2.6rem;
+      width: 2.6rem;
+    }
+
+    & div:first-child {
+      align-items: flex-start;
+      font-size: 1.45rem;
+    }
+  }
 `;
 
 const Section = styled.section`
   padding: 3.2rem 4rem 1.2rem;
+
+  @media (max-width: 62em) {
+    padding: 2.4rem;
+  }
+
+  @media (max-width: 37.5em) {
+    padding: 1.6rem;
+  }
 `;
 
 const Guest = styled.div`
@@ -61,10 +119,26 @@ const Guest = styled.div`
   gap: 1.2rem;
   margin-bottom: 1.6rem;
   color: var(--color-grey-500);
+  flex-wrap: wrap;
+  row-gap: 0.6rem;
 
   & p:first-of-type {
     font-weight: 500;
     color: var(--color-grey-700);
+  }
+
+  & p {
+    overflow-wrap: anywhere;
+  }
+
+  @media (max-width: 37.5em) {
+    align-items: flex-start;
+    gap: 0.8rem;
+    font-size: 1.3rem;
+
+    & span {
+      display: none;
+    }
   }
 `;
 
@@ -72,6 +146,7 @@ const Price = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1.6rem;
   padding: 1.6rem 3.2rem;
   border-radius: var(--border-radius-sm);
   margin-top: 2.4rem;
@@ -92,6 +167,22 @@ const Price = styled.div`
     width: 2.4rem;
     color: currentColor !important;
   }
+
+  @media (max-width: 62em) {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 1.6rem 2rem;
+  }
+
+  @media (max-width: 37.5em) {
+    margin-top: 1.6rem;
+    padding: 1.4rem;
+    font-size: 1.3rem;
+
+    & p:last-child {
+      font-size: 1.15rem;
+    }
+  }
 `;
 
 const Footer = styled.footer`
@@ -99,6 +190,15 @@ const Footer = styled.footer`
   font-size: 1.2rem;
   color: var(--color-grey-500);
   text-align: right;
+
+  @media (max-width: 62em) {
+    padding: 1.4rem 2.4rem;
+  }
+
+  @media (max-width: 37.5em) {
+    padding: 1.2rem 1.6rem;
+    text-align: left;
+  }
 `;
 
 // A purely presentational component

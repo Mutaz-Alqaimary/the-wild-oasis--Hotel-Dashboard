@@ -21,6 +21,20 @@ const StyledSalesChart = styled(DashboardBox)`
   & .recharts-cartesian-grid-vertical line {
     stroke: var(--color-grey-300);
   }
+
+  @media (max-width: 37.5em) {
+    & > *:first-child {
+      text-align: center;
+    }
+
+    & .recharts-yAxis .recharts-cartesian-axis-tick-value {
+      font-size: 1.1rem;
+    }
+
+    & .recharts-xAxis .recharts-cartesian-axis-tick-value {
+      font-size: 1.1rem;
+    }
+  }
 `;
 
 function SalesChart({ bookings, numDays }) {
@@ -64,12 +78,16 @@ function SalesChart({ bookings, numDays }) {
         {format(allDates.at(-1), "MMM dd yyyy")}{" "}
       </Heading>
 
-      <ResponsiveContainer height={300} width="100%">
-        <AreaChart data={data}>
+      <ResponsiveContainer height={260} width="100%">
+        <AreaChart
+          data={data}
+          margin={{ top: 8, right: 12, left: 0, bottom: 8 }}
+        >
           <XAxis
             dataKey="label"
             tick={{ fill: colors.text }}
             tickLine={{ stroke: colors.text }}
+            minTickGap={24}
           />
           <YAxis
             unit="$"

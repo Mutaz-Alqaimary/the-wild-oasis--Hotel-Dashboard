@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { Children, createContext, useContext } from "react";
 import styled from "styled-components";
 
 const StyledTable = styled.div`
@@ -8,6 +8,11 @@ const StyledTable = styled.div`
   background-color: var(--color-grey-0);
   border-radius: 7px;
   overflow: hidden;
+  min-width: 0;
+
+  @media (max-width: 62em) {
+    font-size: 1.35rem;
+  }
 `;
 
 const CommonRow = styled.div`
@@ -16,6 +21,30 @@ const CommonRow = styled.div`
   column-gap: 2.4rem;
   align-items: center;
   transition: none;
+  min-width: ${(props) => props.$minWidth};
+
+  @media (max-width: 75em) {
+    column-gap: 1.6rem;
+  }
+`;
+
+const ScrollArea = styled.div`
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    height: 0.8rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: var(--color-grey-50);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color-grey-300);
+    border-radius: 999px;
+  }
 `;
 
 const StyledHeader = styled(CommonRow)`
@@ -27,6 +56,10 @@ const StyledHeader = styled(CommonRow)`
   letter-spacing: 0.4px;
   font-weight: 600;
   color: var(--color-grey-600);
+
+  @media (max-width: 75em) {
+    padding: 1.4rem 1.8rem;
+  }
 `;
 
 const StyledRow = styled(CommonRow)`
@@ -34,6 +67,14 @@ const StyledRow = styled(CommonRow)`
 
   &:not(:last-child) {
     border-bottom: 1px solid var(--color-grey-100);
+  }
+
+  & > * {
+    min-width: 0;
+  }
+
+  @media (max-width: 75em) {
+    padding: 1.2rem 1.8rem;
   }
 `;
 
@@ -51,6 +92,10 @@ const Footer = styled.footer`
   &:not(:has(*)) {
     display: none;
   }
+
+  @media (max-width: 37.5em) {
+    padding: 1rem;
+  }
 `;
 
 const Empty = styled.p`
@@ -62,26 +107,38 @@ const Empty = styled.p`
 
 const TableContext = createContext();
 
-function Table({ $columns, children }) {
+function Table({ $columns, $minWidth = "90rem", children }) {
+  const childrenArray = Children.toArray(children);
+  const footer = childrenArray.find((child) => child.type === Footer);
+  const tableContent = childrenArray.filter((child) => child.type !== Footer);
+
   return (
-    <TableContext.Provider value={{ $columns }}>
-      <StyledTable role="table">{children}</StyledTable>
+    <TableContext.Provider value={{ $columns, $minWidth }}>
+      <StyledTable role="table">
+        <ScrollArea>{tableContent}</ScrollArea>
+        {footer}
+      </StyledTable>
     </TableContext.Provider>
   );
 }
 
 function Header({ children }) {
-  const { $columns } = useContext(TableContext);
+  const { $columns, $minWidth } = useContext(TableContext);
   return (
-    <StyledHeader role="row" $columns={$columns} as="header">
+    <StyledHeader
+      role="row"
+      $columns={$columns}
+      $minWidth={$minWidth}
+      as="header"
+    >
       {children}
     </StyledHeader>
   );
 }
 function Row({ children }) {
-  const { $columns } = useContext(TableContext);
+  const { $columns, $minWidth } = useContext(TableContext);
   return (
-    <StyledRow role="row" $columns={$columns}>
+    <StyledRow role="row" $columns={$columns} $minWidth={$minWidth}>
       {children}
     </StyledRow>
   );

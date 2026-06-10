@@ -7,7 +7,9 @@ function AddGuest() {
     <div>
       <Modal>
         <Modal.Open opens="guest-form">
-          <Button type="button" style={{width: "14rem"}}>Add new guest</Button>
+          <Button type="button" style={{ minWidth: "14rem" }}>
+            Add new guest
+          </Button>
         </Modal.Open>
         <Modal.Window name="guest-form">
           <CreateGuestForm />

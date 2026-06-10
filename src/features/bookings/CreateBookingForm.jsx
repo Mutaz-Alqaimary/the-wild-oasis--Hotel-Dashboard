@@ -4,6 +4,7 @@ import Spinner from "../../ui/Spinner";
 import Button from "../../ui/Button";
 import Input from "../../ui/Input";
 import { StyledSelect } from "../../ui/Select";
+import styled from "styled-components";
 
 import { subtractDates, toLocalDateTimeISO } from "../../utils/helpers";
 
@@ -15,6 +16,22 @@ import { useSettings } from "../settings/useSettings";
 import { Controller, useForm } from "react-hook-form";
 import { useEffect } from "react";
 import { useCreateBooking } from "./useCreateBooking";
+
+const GuestSelectGroup = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+
+  @media (max-width: 62em) {
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 37.5em) {
+    align-items: stretch;
+    flex-direction: column;
+  }
+`;
 
 function CreateBookingForm({ onCloseModal }) {
   const { guests, isLoading: isLoadingGuests } = useGuests();
@@ -176,7 +193,7 @@ function CreateBookingForm({ onCloseModal }) {
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <FormRow label="Select Guest" error={errors?.guestId?.message}>
-        <div style={{ display: "flex", alignItems: "center", gap: "2.4rem" }}>
+        <GuestSelectGroup>
           <StyledSelect
             disabled={isCreating}
             id="guestId"
@@ -193,7 +210,7 @@ function CreateBookingForm({ onCloseModal }) {
             ))}
           </StyledSelect>
           <AddGuest />
-        </div>
+        </GuestSelectGroup>
       </FormRow>
 
       <FormRow label="Select Cabin" error={errors?.cabinId?.message}>

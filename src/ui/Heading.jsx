@@ -11,6 +11,14 @@ const Heading = styled.h1`
     css`
       font-size: 3rem;
       font-weight: 600;
+
+      @media (max-width: 62em) {
+        font-size: 2.6rem;
+      }
+
+      @media (max-width: 37.5em) {
+        font-size: 2.2rem;
+      }
     `}
 
   ${(props) =>
@@ -18,6 +26,10 @@ const Heading = styled.h1`
     css`
       font-size: 2rem;
       font-weight: 600;
+
+      @media (max-width: 37.5em) {
+        font-size: 1.7rem;
+      }
     `}
     
     ${(props) =>
@@ -25,6 +37,10 @@ const Heading = styled.h1`
     css`
       font-size: 2rem;
       font-weight: 500;
+
+      @media (max-width: 37.5em) {
+        font-size: 1.7rem;
+      }
     `}
     
     ${(props) =>
@@ -33,9 +49,15 @@ const Heading = styled.h1`
       font-size: 3rem;
       font-weight: 600;
       text-align: center;
+
+      @media (max-width: 37.5em) {
+        font-size: 2.2rem;
+      }
     `}
     
   line-height: 1.4;
+  max-width: 100%;
+  text-wrap: balance;
 `;
 
 export default Heading;

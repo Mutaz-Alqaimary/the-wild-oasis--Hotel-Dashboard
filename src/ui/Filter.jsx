@@ -9,6 +9,21 @@ const StyledFilter = styled.div`
   padding: 0.4rem;
   display: flex;
   gap: 0.4rem;
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (max-width: 37.5em) {
+    width: 100%;
+    padding: 0.3rem;
+  }
+  @media (max-width: 22.5em) {
+    flex-direction: column;
+  }
 `;
 
 const FilterButton = styled.button`
@@ -28,6 +43,15 @@ const FilterButton = styled.button`
   /* To give the same height as select */
   padding: 0.44rem 0.8rem;
   transition: all 0.3s;
+  white-space: nowrap;
+  min-height: 3.2rem;
+
+  @media (max-width: 41.5em) {
+    flex: 1 0 max-content;
+    font-size: 1.2rem;
+    padding: 0.5rem 0.8rem;
+    text-align: center;
+  }
 
   &:hover:not(:disabled) {
     background-color: var(--color-brand-600);
