@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Button from "../../ui/Button";
 import FileInput from "../../ui/FileInput";
@@ -20,8 +20,15 @@ function UpdateUserDataForm() {
 
   const { updateUser, isUpdating } = useUpdateUser();
 
-  const [fullName, setFullName] = useState(currentFullName);
+  const [fullName, setFullName] = useState(currentFullName || "");
   const [avatar, setAvatar] = useState(null);
+
+  useEffect(
+    function syncFullName() {
+      setFullName(currentFullName || "");
+    },
+    [currentFullName],
+  );
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -38,14 +45,14 @@ function UpdateUserDataForm() {
   }
 
   function handleCancel() {
-    setFullName(currentFullName);
+    setFullName(currentFullName || "");
     setAvatar(null);
   }
 
   return (
     <Form onSubmit={handleSubmit}>
       <FormRow label="Email address">
-        <Input value={email} disabled />
+        <Input value={email || ""} disabled />
       </FormRow>
 
       <FormRow label="Full name">

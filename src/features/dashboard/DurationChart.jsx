@@ -132,6 +132,9 @@ const startDataDark = [
   },
 ];
 
+const narrowScreenQuery =
+  "(max-width: 37.5em), (min-width: 75em) and (max-width: 87.5em)";
+
 function prepareData(startData, stays) {
   // A bit ugly code, but sometimes this is what it takes when working with real data 😅
 
@@ -163,11 +166,11 @@ function useIsNarrowScreen() {
   const [isNarrow, setIsNarrow] = useState(() =>
     typeof window === "undefined"
       ? false
-      : window.matchMedia("(max-width: 37.5em)").matches,
+      : window.matchMedia(narrowScreenQuery).matches,
   );
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 37.5em)");
+    const mediaQuery = window.matchMedia(narrowScreenQuery);
     const handleChange = (event) => setIsNarrow(event.matches);
 
     setIsNarrow(mediaQuery.matches);

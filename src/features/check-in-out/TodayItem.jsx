@@ -7,8 +7,10 @@ import Button from "../../ui/Button";
 import CheckoutButton from "./CheckoutButton";
 
 const StyledTodayItem = styled.li`
-  display: grid;
-  grid-template-columns: 9rem 2rem 1fr 7rem 9rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  /* grid-template-columns: 9rem 2rem 1fr 7rem 9rem; */
   gap: 1.2rem;
   align-items: center;
 
@@ -21,41 +23,12 @@ const StyledTodayItem = styled.li`
   }
 
   @media (max-width: 37.5em) {
-    grid-template-columns: auto 2rem auto minmax(0, 1fr);
-    gap: 1rem 1.2rem;
+    gap: 0.9rem 1.2rem;
     font-size: 1.3rem;
     padding: 1rem 0;
-  }
-
-  & > div:nth-child(4) {
-    white-space: nowrap;
-  }
-
-  & > a,
-  & > button {
-    justify-self: end;
-  }
-
-  @media (max-width: 37.5em) {
     & > a,
     & > button {
-      grid-column: 1 / -1;
-      justify-self: stretch;
-    }
-  }
-
-  @media (max-width: 22em) {
-    & > div:nth-child(4) {
-      grid-column: 2 / 4;
-    }
-  }
-
-  @media (min-width: 75em) and (max-width: 87.5em) {
-    grid-template-columns: auto 2rem auto minmax(0, 1fr);
-    & > a,
-    & > button {
-      grid-column: 1 / -1;
-      justify-self: stretch;
+      padding: 0.7rem 0;
     }
   }
 `;
