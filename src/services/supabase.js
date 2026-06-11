@@ -1,8 +1,14 @@
 import { createClient } from "@supabase/supabase-js";
 
-export const supabaseUrl = "https://thmdrfombxtbhwtbeqcf.supabase.co";
-const supabaseKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRobWRyZm9tYnh0Ymh3dGJlcWNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDkzODA3ODUsImV4cCI6MjA2NDk1Njc4NX0.Oih7BFTrBAXom7k9Wmb0MKLsAoQ7eHB2OvY4YIFW7-s";
+export const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+
+if (!supabaseUrl || !supabaseKey) {
+  throw new Error(
+    "Missing Supabase environment variables. Check VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY in .env.local.",
+  );
+}
+
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 export default supabase;
