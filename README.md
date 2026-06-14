@@ -2,7 +2,7 @@
 
 The Wild Oasis is a hotel management dashboard built with React and Vite. It helps staff manage cabins, bookings, guests, check-ins, settings, and user accounts from a protected admin interface.
 
-Live demo: [https://the-wild-oasis-ten-xi-56.vercel.app]
+Live demo: [https://the-wild-oasis-ten-xi-56.vercel.app](https://the-wild-oasis-ten-xi-56.vercel.app])
 
 ## Features
 
